@@ -7,7 +7,7 @@ feature "user registers spot", %Q{
 
 } do
   scenario 'specifies valid information, registers spot' do
-    prev_count = ParkingRegistration.count
+    prev_count = Registration.count
     visit '/'
     fill_in "First name", with: 'John'
     fill_in "Last name", with: 'Smith'
@@ -15,7 +15,7 @@ feature "user registers spot", %Q{
     fill_in 'Spot number', with: 5
     click_button 'Register'
     expect(page).to have_content('You registered successfully')
-    expect(ParkingRegistration.count).to eql(prev_count + 1)
+    expect(Registration.count).to eql(prev_count + 1)
   end
 
 end
